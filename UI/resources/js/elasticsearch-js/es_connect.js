@@ -26,7 +26,8 @@ EsConnector.controller('ServerHealthController', function($scope, es) {
 EsConnector.controller('QueryController', function($scope, es) {
 
 // search for documents
-  index: 'test',
+   es.search({
+     index: 'test',
   type: 'product',
   body: {
     "query": {
