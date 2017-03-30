@@ -27,7 +27,7 @@ EsConnector.controller('QueryController', function($scope, es) {
 
 // search for documents
    es.search({
-     index: 'test',
+     index: '20partners',
   type: 'product',
   body: {
     "query": {
