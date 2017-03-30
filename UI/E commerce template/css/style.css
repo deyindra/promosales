@@ -64,7 +64,7 @@ body {
    margin-right:10px;
 }
 .search_box form{
-	 background:#151719;
+	 background:#FFFFFF;
 	 position: relative;
 	 display:inline-block;
 	 padding-left:18px;
@@ -102,7 +102,7 @@ body {
 }
 /** Navigation **/
 .navigation{
-	background:#DB893B;
+	background:#e44f2b;
 	padding:5px 0;
 	position:relative;
 }
@@ -627,7 +627,7 @@ body {
   font-size:14px; 
 }
 .footer-nav li a{
-	color:#FFF;
+	color:#000000;
 	 margin:0 10px;
 }
 .footer-nav li a:hover{
@@ -638,7 +638,7 @@ body {
 }
 .copy_right p {
 	font-size:14px;
-	color:#FFF;
+	color:#000000;
 }
 .copy_right p a {
 	color:#FFF;
@@ -1289,7 +1289,7 @@ body {
 }
 @media only screen and (max-width: 1024px) {
 .wrap {
-		width: 95%;
+		width: 30%;
 	}
 	.nav a{
 	  padding:16px 20px;
