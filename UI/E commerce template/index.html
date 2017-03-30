@@ -212,58 +212,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					 <span class="left-ribbon"> </span> 
       				 <span class="right-ribbon"> </span>    
   		    </div>
-  		     <div class="header_bottom">
-			   <div class="slider-text">
-			   	<h2>Quality Deals<br/>Brought to you by Criteo</h2>
-			   	<p>Deals sourced from billions of products<br/> The most up-to-date quality deals</p>
-			   	<a href="#">Deals Now</a>
-	  	      </div>
-	  	      <div class="slider-img">
-	  	      	<img src="images/slider-img.png" alt="" />
-	  	      </div>
-	  	     <div class="clear"></div>
-	      </div>
    		</div>
    </div>
    <!------------End Header ------------>
   <div class="main">
       <div class="content">
-    	        <div class="content_top">
-    	        	<div class="wrap">
-		          	   <h3>Latest Deals</h3>
-		          	</div>
-		          	<div class="line"> </div>
-		          	<div class="wrap">
-		          	 <div class="ocarousel_slider">  
-	      				<div class="ocarousel example_photos" data-ocarousel-perscroll="3">
-			                <div class="ocarousel_window">
-			                   <a href="#" title="img1"> <img src="images/latest-product-img1.jpg" alt="" /><p>Nuncvitae</p></a>
-			                   <a href="#" title="img2"> <img src="images/latest-product-img2.jpg" alt="" /><p>Suspendiss</p></a>
-			                   <a href="#" title="img3"> <img src="images/latest-product-img3.jpg" alt="" /><p>Phasellus ferm</p></a>
-			                   <a href="#" title="img4"> <img src="images/latest-product-img4.jpg" alt="" /><p>Veldignissim</p></a>
-			                   <a href="#" title="img5"> <img src="images/latest-product-img5.jpg" alt="" /><p>Aliquam interd</p></a>
-			                   <a href="#" title="img6"> <img src="images/latest-product-img6.jpg" alt="" /><p>Sapien lectus</p></a>
-			                   <a href="#" title="img1"> <img src="images/latest-product-img1.jpg" alt="" /><p>Nuncvitae</p></a>
-			                   <a href="#" title="img2"> <img src="images/latest-product-img2.jpg" alt="" /><p>Suspendiss</p></a>
-			                   <a href="#" title="img3"> <img src="images/latest-product-img3.jpg" alt="" /><p>Phasellus ferm</p></a>
-			                   <a href="#" title="img4"> <img src="images/latest-product-img4.jpg" alt="" /><p>Veldignissim</p></a>
-			                   <a href="#" title="img5"> <img src="images/latest-product-img5.jpg" alt="" /><p>Aliquam interd</p></a>
-			                   <a href="#" title="img6"> <img src="images/latest-product-img6.jpg" alt="" /><p>Sapien lectus</p></a>
-			                </div>
-			               <span>           
-			                <a href="#" data-ocarousel-link="left" style="float: left;" class="prev"> </a>
-			                <a href="#" data-ocarousel-link="right" style="float: right;" class="next"> </a>
-			               </span>
-					   </div>
-				     </div>  
-				   </div>    		
-    	       </div>
     	  <div class="content_bottom">
     	    <div class="wrap">
     	    	<div class="content-bottom-left">
     	    		<div class="categories">
 						   <ul>
 						  	   <h3>Browse All Categories</h3>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();">Top Deals</a></li>
 							      <li><a href="#">Appliances</a></li>
 							      <li><a href="#">Sports Equipments</a></li>
 							      <li><a href="#">Computers & Electronics</a></li>
@@ -523,14 +483,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     <script type="text/javascript">
 
-	    //window.onload = function() {
+	    function loadTopDeals() {
 		    document.getElementById("orig_price1").innerHTML = "<del>$199.99</del>";
 		    document.getElementById("disc_price1").innerHTML = "$129.99";
 		    document.getElementById("description1").src = "http://www.criteo.com/";
 		    document.getElementById("description1").innerHTML = "Black Dress";
 			document.getElementById("image1").src = "images/dress1.jpg";
 			    
-		//};
+		};
 
     </script>
 </body>
