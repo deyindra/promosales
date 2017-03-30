@@ -266,7 +266,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						  	   <h3>Browse All Categories</h3>
 							      <li><a href="#">Appliances</a></li>
 							      <li><a href="#">Sports Equipments</a></li>
-							      <li><a href="#">Computers & Electronics</a></li>
+							      <li><a href="#" onclick="event.preventDefault(); loadElectronics();">Computers & Electronics</a></li>
 							      <li><a href="#">Office supplies</a></li>
 							      <li><a href="#">Health & Beauty</a></li>
 							       <li><a href="#">Home & Garden</a></li>
@@ -299,7 +299,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	    	</div>
     	    	
     	    	<div class="content-bottom-right">
-    	    	<h3>Browse All Categories</h3>
+    	    	<h3 id="results_header">Browse All Categories</h3>
 	            <div class="section group">
 				  <div class="grid_1_of_4 images_1_of_4">
 					 <h4><a href="preview.html" id="description1">Whirlpool LTE5243D 3.4 CuFt.... </a></h4>
@@ -533,6 +533,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		//};
 
     </script>
+
+    <script type="text/javascript">
+	    function loadElectronics() {
+		    document.getElementById("orig_price1").innerHTML = "<del>$999.99</del>";
+		    document.getElementById("disc_price1").innerHTML = "$429.99";
+		    document.getElementById("description1").src = "http://www.criteo.com/";
+		    document.getElementById("description1").innerHTML = "Laptop";
+			document.getElementById("results_header").innerHTML = "Electronics";
+			document.getElementById("image1").src = "images/computer.png";
+			    
+		};
+	</script>
+
+
 </body>
 </html>
 
