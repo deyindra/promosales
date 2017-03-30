@@ -5,7 +5,7 @@ var client = new elasticsearch.Client({
   log: 'trace'
 });
 
-
+/*
 client.ping({
   requestTimeout: 30000,
 }, function (error) {
@@ -16,8 +16,8 @@ client.ping({
   }
 });
 
-
-client.search({
+/*
+result = client.search({
   index: 'test',
   type: 'product',
   body: {
@@ -28,4 +28,52 @@ client.search({
         }
 
   }
-})
+});
+console.log(result);*/
+
+console.log("start second");
+
+var result2 = client.search({
+  index: 'test',
+  type: 'product',
+  body: {
+"sort": [
+   {
+     "discount": {"order": "desc"}
+   }
+], "query": {
+        "term": {
+          "partnerId": 6211
+        }
+    },
+    "size":  2
+
+  }
+},function (error, response)
+{
+ console.log("print response");
+ console.log(response.hits.hits);
+ objects = response.hits.hits;
+ console.log(objects[0]._source.brandEnrichment);
+ console.log(objects.keys.length)
+
+}
+
+)
+
+//var resultString = result2.toString();
+
+//console.log("print second");
+//console.log(resultString);
+
+//var objects = result.split("<- 200");
+//var esResult = objects[2];
+
+console.log("print final second");
+//console.log(esResult);
+
+
+
+//object = JSON.parse(result);
+//console.log(object.took);
+
