@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="./lib/elasticsearch-js/elasticsearch.jquery.js"></script>
+</head>
+<body>
+<h1>Hello World</h1>
+
+<script type="text/javascript">
+    var client = new $.es.Client({
+        hosts: 'localhost:9200',
+        log: 'trace'
+    });
+
+    console.log("test");
+
+    function test() {
+        client.ping({
+            requestTimeout: 30000,
+        }, function (error) {
+            if (error) {
+                console.error('elasticsearch cluster is down!');
+            } else {
+                alert('elastic search works');
+                console.log("all is well");
+            }
+        });
+    }
+
+    window.onload = test();
+
+</script>
+</body>
+</html>
