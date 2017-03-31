@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="./lib/elasticsearch-js/elasticsearch.jquery.js"></script>
 	<script type="text/javascript">
         var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":20}}},{"range":{"price":{"gte":20}}}]}}}';
-        var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}'
+        var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
 		$(document).ready(loadPage(giftCardQuery));
 
 		function loadGiftCardPage()
@@ -84,7 +84,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					function shorten(text, maxLength) {
 						var ret = text;
-						if (ret.length > maxLength) {
+
+						if (ret != undefined  && ret != null && ret.length > maxLength) {
 							ret = ret.substring(0,maxLength-3) + "...";
 						}
 						return ret;
@@ -189,30 +190,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</ul>
 						</li>
 						<li>
-							<a href="#">Electronics</a>
-							<ul>
-								<li>
-									<a href="#">Laptops</a>
-									<ul>
-										<li><a href="#">HP</a></li>
-										<li><a href="#">Lenova</a></li>
-										<li><a href="#">Dell</a></li>
-										<li><a href="#">All Brands</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#">Computer Accessories</a>
-									<ul>
-										<li><a href="#">External Hard Disks</a></li>
-										<li><a href="#">Pendrives</a></li>
-										<li><a href="#">PC Components</a></li>
-										<li><a href="#">Computer Peripherals</a></li>
-										<li><a href="#">Datacards & Routers</a></li>
-										<li><a href="#">Mouse</a></li>
-										<li><a href="#">Laptop Skins & Decals</a></li>
-									</ul>
-								</li>
-							</ul>
+							<a href="#" onclick="event.preventDefault(); loadElectronicPage();">Electronics</a>
 						</li>
 						<li>
 							<a href="#">Jewelry</a>
@@ -281,7 +259,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</ul>
 						</li>
 						<li>
-							<a href="#" onclick=“event.preventDefault(); loadElectronicPage();“>Gift Card</a>
+							<a href="#" onclick="event.preventDefault(); loadGiftCardPage();">Gift Card</a>
 						</li>
 						<li>
 							<a href="contact.html">Login</a>
