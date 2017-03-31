@@ -108,7 +108,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             document.getElementById("disc_price" + (step + 1)).innerHTML = "$" + data.hits.hits[step]._source.price;
                             document.getElementById("description" + (step + 1)).href = data.hits.hits[step]._source.producturl;
                             document.getElementById("image_redirect" + (step + 1)).href = data.hits.hits[step]._source.producturl;
-                            document.getElementById("moreinfo" + (step + 1)).innerHTML = shorten(data.hits.hits[step]._source.description, 100);
+                            document.getElementById("moreinfo" + (step + 1)).innerHTML = shorten(data.hits.hits[step]._source.name, 100);
 
                         }
 
