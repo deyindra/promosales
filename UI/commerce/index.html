@@ -438,6 +438,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					// test
 //					loadTopDeals();
 
+					// ====================== RUCHA START ==========================
 
                     $.post( 'http://172.28.46.6:9200/20partners/product/_search',
                         '{"size":10,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}')
@@ -450,6 +451,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    				document.getElementById("disc_price1").innerHTML = data.hits.hits[0]._source.price;
 		    				document.getElementById("description1").src = data.hits.hits[0]._source.producturl;
                         });
+
+                    // ====================== RUCHA END ==========================
+
+
+                    // ====================== Yi START ==========================
+
+					// only yi can code here
+
+                    // ====================== Yi END ==========================
+
+                    // ====================== MING START ==========================
+
+                    // only ming can code here
+
+                    // ====================== MING END ==========================
+
+                    // ====================== YT START ==========================
+
+					// only YT can code here
+
+                    // ====================== YT END ==========================
+
+                    // ====================== YUANCHAO START ==========================
+
+                    // ====================== YUANCHAO END ==========================
+
+                    // ====================== ZHENG START ==========================
+
+                    // ====================== ZHENG END ==========================
 
                           //  alert( "Data Loaded: " + data );
                             //$("description1").html(data.hits.hits[0]._source.brand);
