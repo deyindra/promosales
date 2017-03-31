@@ -184,14 +184,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	    		<div class="categories">
 						   <ul>
 						  	   <h3>Top Deal Partners</h3>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/macys.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/JCpenney.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/newegg.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/bandh.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/freepeople.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/stihl.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/sunglasshut.png></a></li>
-						  	   	  <li><a href="#" onclick="event.preventDefault(); loadTopDeals();"><img src=images/images/vividseats.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/macys.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/JCpenney.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/newegg.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/bandh.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/freepeople.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/stihl.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/sunglasshut.png></a></li>
+						  	   	  <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/vividseats.png></a></li>
 
 						  	 </ul>
 						</div>		
@@ -413,7 +413,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <script type="text/javascript">
-		$(document).ready(loadPage('{"size":10,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}'));
+		$(document).ready(loadPage('{"size":12,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}'));
 
 
         function loadPage(query){
@@ -435,11 +435,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					console.log("all is well");
 					loadTopDeals();
 
-					// ====================== RUCHA START ==========================
-
                     $.post( 'http://172.28.46.6:9200/20partners/product/_search',
                         query)
-                        .done(function( data ) {
+                        .done(function( fetchedData ) {
+
+							rucha(fetchedData);
+							ming(fetchedData);
+
+                        });
+
+					// ====================== RUCHA START ==========================
+
+					function rucha(data) {
 //                            alert( "Data Loaded: " + data );
                             console.log("debug for breakpoint");
                             document.getElementById("description1").innerHTML = data.hits.hits[0]._source.brand;
@@ -449,7 +456,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    				document.getElementById("description1").href = data.hits.hits[0]._source.producturl;
 		    				document.getElementById("image_redirect1").href = data.hits.hits[0]._source.producturl;
 		    				document.getElementById("moreinfo1").innerHTML = data.hits.hits[0]._source.description;
-                        });
+					}
 
                     // ====================== RUCHA END ==========================
 
@@ -463,6 +470,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     // ====================== MING START ==========================
 
                     // only ming can code here
+					function ming(data) {
+
+					 	console.log("test");
+
+					}
 
                     // ====================== MING END ==========================
 
