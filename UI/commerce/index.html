@@ -129,7 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             document.getElementById("moreinfo" + (step + 1)).innerHTML = shorten(data.hits.hits[step]._source.name, 100);
 
                             // random number of sales in last 24hrs
-                            var numSales = Math.floor((Math.random() * 100) + 1);
+                            var numSales = Math.floor((Math.random() * 20 * (15 - step)) + 1);
                             document.getElementById("trend" + (step + 1)).innerHTML = numSales + " sold in last 24hrs";
 
                         }
