@@ -22,7 +22,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript">
         var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":15}}},{"range":{"price":{"gte":50}}}]}}}';
         var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
-        var TVQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[305]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
+        var monitorQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[305]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
+        var TVQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
         $(document).ready(loadPage(giftCardQuery));
 
         function loadGiftCardPage() {
@@ -32,6 +33,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         function loadElectronicPage() {
             loadPage(electronicQuery);
         }
+
+	function loadMonitorPage() {
+            loadPage(monitorQuery);
+	}
 
 	function loadTVPage() {
             loadPage(TVQuery);
@@ -203,7 +208,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <li>
                     <a href="#" onclick="event.preventDefault(); loadElectronicPage();">Electronics</a>
                     <ul>
-                        <li><a href="#"onclick="event.preventDefault(); loadTVPage();">Monitors</a></li>
+                        <li><a href="#"onclick="event.preventDefault(); loadTVPage();">Televisions</a></li>
+                        <li><a href="#"onclick="event.preventDefault(); loadMonitorPage();">Monitors</a></li>
                     </ul>
                 </li>
                 <li>
