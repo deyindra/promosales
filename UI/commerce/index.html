@@ -439,29 +439,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 //					loadTopDeals();
 
 
-                    $.post( "http://172.28.46.6:9200/20partners/product/_search",
-                        {
-                            "size": 10,
-                            "sort": [
-                                {
-                                    "discount": {"order": "desc"}
-                                }
-                            ],
-                            "query": {
-                                "bool": {
-                                    "must": [
-                                        {
-                                            "match": {
-                                                "partnerId": 35576
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        })
+                    var test = $.post( 'http://172.28.46.6:9200/20partners/product/_search',
+                        '{"size":10,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}')
                         .done(function( data ) {
                             alert( "Data Loaded: " + data );
                         });
+                    console.log("debug log");
 				}
 			});
 
