@@ -415,7 +415,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <script type="text/javascript">
-		$(document).ready(loadPage('{"size":12,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}'));
+        var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":20}}},{"range":{"price":{"gte":20}}}]}}}';
+        var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}'
+		$(document).ready(loadPage(giftCardQuery));
 
 
         function loadPage(query){
