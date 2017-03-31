@@ -419,7 +419,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 log: 'trace'
             });
 
-			console.log("test");
+			//console.log("test");
 
 			client.ping({
 				requestTimeout: 30000,
@@ -439,12 +439,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 //					loadTopDeals();
 
 
-                    var test = $.post( 'http://172.28.46.6:9200/20partners/product/_search',
+                    $.post( 'http://172.28.46.6:9200/20partners/product/_search',
                         '{"size":10,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}')
                         .done(function( data ) {
-                            alert( "Data Loaded: " + data );
+//                            alert( "Data Loaded: " + data );
+                            console.log("debug for breakpoint");
                         });
-                    console.log("debug log");
+
 				}
 			});
 
