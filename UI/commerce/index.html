@@ -444,7 +444,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         .done(function( data ) {
 //                            alert( "Data Loaded: " + data );
                             console.log("debug for breakpoint");
+                            document.getElementById("description1").innerHTML = data.hits.hits[0]._source.brand;
+                            document.getElementById("image1").src = "https://d3lh2hqqgsec27.cloudfront.net/merchant-images/lg/restaurant-com.png";
+                            document.getElementById("orig_price1").innerHTML = data.hits.hits[0]._source.retailprice;
+		    				document.getElementById("disc_price1").innerHTML = data.hits.hits[0]._source.price;
+		    				document.getElementById("description1").src = data.hits.hits[0]._source.producturl;
                         });
+
+                          //  alert( "Data Loaded: " + data );
+                            //$("description1").html(data.hits.hits[0]._source.brand);
+                            
+                    console.log("debug log");
 
 				}
 			});
@@ -459,11 +469,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript">
 
 	    function loadTopDeals() {
-		    document.getElementById("orig_price1").innerHTML = "<del>$199.99</del>";
-		    document.getElementById("disc_price1").innerHTML = "$129.99";
-		    document.getElementById("description1").src = "http://www.criteo.com/";
-		    document.getElementById("description1").innerHTML = "Black Dress";
-			document.getElementById("image1").src = "images/dress1.jpg";
+
+	    	//$("description1").html("abc");
+		    //document.getElementById("orig_price1").innerHTML = "<del>$199.99</del>";
+		   // document.getElementById("disc_price1").innerHTML = "$129.99";
+		   // document.getElementById("description1").src = "http://www.criteo.com/";
+		   // document.getElementById("description1").innerHTML = "Black Dress";
+			//document.getElementById("image1").src = "images/dress1.jpg";
 
 		};
 
