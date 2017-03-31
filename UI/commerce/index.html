@@ -20,6 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="./lib/elasticsearch-js/elasticsearch.jquery.js"></script>
 
+
 </head>
 <body>
 	<div class="header">
@@ -231,11 +232,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					    <div class="price-number">
 							<p id="disc_price1"><span class="rupees"></span></p>
 					    </div>
-					    <p id="moreinfo1"></p>
-
-							 <div class="clear"></div>
+					    <h2 id="moreinfo1"></h2>
+					   
+						<div class="clear"></div>
 					</div>					 
 				</div>
+
 				<div class="grid_1_of_4 images_1_of_4">
 					<h4><a href="preview.html" id="description2">Whirlpool LTE5243D 3.4 CuFt.... </a></h4>
 					 <a href="preview.html"><img src="images/product-img2.jpg" alt="" id="image2"/></a>
@@ -446,6 +448,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					// ====================== RUCHA START ==========================
 
+
+					
+	
+
 					function rucha(data) {
 //                            alert( "Data Loaded: " + data );
                             console.log("debug for breakpoint");
@@ -455,8 +461,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    				document.getElementById("disc_price1").innerHTML = "$" + data.hits.hits[0]._source.price;
 		    				document.getElementById("description1").href = data.hits.hits[0]._source.producturl;
 		    				document.getElementById("image_redirect1").href = data.hits.hits[0]._source.producturl;
-		    				document.getElementById("moreinfo1").innerHTML = data.hits.hits[0]._source.description;
-					}
+		    				document.getElementById("moreinfo1").innerHTML = shorten(data.hits.hits[0]._source.description,100);
+					};
+
+					function shorten(text, maxLength) {
+						var ret = text;
+						if (ret.length > maxLength) {
+							ret = ret.substring(0,maxLength-3) + "...";
+						}
+						return ret;
+					};
 
                     // ====================== RUCHA END ==========================
 

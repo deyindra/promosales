@@ -36,6 +36,9 @@ body {
 	font-family: 'Ubuntu Condensed', sans-serif;
 	background:#ebebeb;
 }
+.desc {
+	font-size:57em;
+}
 .wrap {
 	width:80%;
 	margin: 0 auto;
