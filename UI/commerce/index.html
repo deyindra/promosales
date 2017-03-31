@@ -429,6 +429,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				} else {
 					alert('elastic search works');
 					console.log("all is well");
+//                    document.getElementById("orig_price1").innerHTML = "<del>$199.99</del>";
+//                    document.getElementById("disc_price1").innerHTML = "$129.99";
+//                    document.getElementById("description1").src = "http://www.criteo.com/";
+//                    document.getElementById("description1").innerHTML = "Black Dress";
+//                    document.getElementById("image1").src = "images/dress1.jpg";
+
+					// test
+//					loadTopDeals();
+
+
+                    $.post( "http://172.28.46.6:9200/20partners/product/_search",
+                        {
+                            "size": 10,
+                            "sort": [
+                                {
+                                    "discount": {"order": "desc"}
+                                }
+                            ],
+                            "query": {
+                                "bool": {
+                                    "must": [
+                                        {
+                                            "match": {
+                                                "partnerId": 35576
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        })
+                        .done(function( data ) {
+                            alert( "Data Loaded: " + data );
+                        });
 				}
 			});
 
@@ -447,7 +480,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		    document.getElementById("description1").src = "http://www.criteo.com/";
 		    document.getElementById("description1").innerHTML = "Black Dress";
 			document.getElementById("image1").src = "images/dress1.jpg";
-			    
+
 		};
 
     </script>
