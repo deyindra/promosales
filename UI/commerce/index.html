@@ -20,7 +20,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="./lib/elasticsearch-js/elasticsearch.jquery.js"></script>
     <script type="text/javascript">
-        var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":20}}},{"range":{"price":{"gte":20}}}]}}}';
+        var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":15}}},{"range":{"price":{"gte":50}}}]}}}';
         var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
         $(document).ready(loadPage(giftCardQuery));
 
