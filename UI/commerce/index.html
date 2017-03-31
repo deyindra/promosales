@@ -22,6 +22,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript">
         var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":15}}},{"range":{"price":{"gte":50}}}]}}}';
         var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
+        var TVQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[305]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
         $(document).ready(loadPage(giftCardQuery));
 
         function loadGiftCardPage() {
@@ -31,6 +32,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         function loadElectronicPage() {
             loadPage(electronicQuery);
         }
+
+	function loadTVPage() {
+            loadPage(TVQuery);
+	}
 
         function shorten(text, maxLength) {
             var ret = text;
@@ -101,8 +106,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         var step = 0;
                         for (; step < 12; step++) {
-
-                            document.getElementById("description" + (step + 1)).innerHTML = data.hits.hits[step]._source.brand;
+			    var brand = data.hits.hits[step]._source.brand;
+			    if (typeof brand == 'undefined')
+                                document.getElementById("description" + (step + 1)).innerHTML = "";
+			    else
+                                document.getElementById("description" + (step + 1)).innerHTML = data.hits.hits[step]._source.brand;
                             document.getElementById("image" + (step + 1)).src = data.hits.hits[step]._source.bigimage;
                             document.getElementById("orig_price" + (step + 1)).innerHTML = "<del> $" + data.hits.hits[step]._source.retailprice + "</del>";
                             document.getElementById("disc_price" + (step + 1)).innerHTML = "$" + data.hits.hits[step]._source.price;
@@ -194,6 +202,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </li>
                 <li>
                     <a href="#" onclick="event.preventDefault(); loadElectronicPage();">Electronics</a>
+                    <ul>
+                        <li><a href="#"onclick="event.preventDefault(); loadTVPage();">Monitors</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#">Jewelry</a>
@@ -211,6 +222,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li>
                             <a href="#">Home Furnishing</a>
                             <ul>
+TOLED55B6
                                 <li><a href="#">Bed</a></li>
                                 <li><a href="#">Bath</a></li>
                                 <li><a href="#">Kitchen</a></li>
