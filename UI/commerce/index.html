@@ -222,18 +222,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	    	<h3>Browse All Categories</h3>
 	            <div class="section group">
 				  <div class="grid_1_of_4 images_1_of_4">
-					 <h4><a href="preview.html" id="description1">Whirlpool LTE5243D 3.4 CuFt.... </a></h4>
-					  <a href="preview.html" ><img src="images/product-img1.jpg" alt="" id="image1"/></a>
+					 <h4><a href="preview.html" id="description1"></a></h4>
+					  <a href="preview.html" id="image_redirect1"><img src="" alt="" id="image1"/></a>
 					  <div class="price-details">
 				       <div class="price-number">
-							<p id="orig_price1"><span class="rupees"><del>$839.93</del></span></p>
+							<p id="orig_price1"><span class="rupees"><del></del></span></p>
 					    </div>
 					    <div class="price-number">
-							<p id="disc_price1"><span class="rupees">$839.93 </span></p>
+							<p id="disc_price1"><span class="rupees"></span></p>
 					    </div>
-					       		<div class="add-cart">								
-									<h4><a href="preview.html">More Info</a></h4>
-							     </div>
+					    <p id="moreinfo1"></p>
+
 							 <div class="clear"></div>
 					</div>					 
 				</div>
@@ -434,14 +433,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				} else {
 					//alert('elastic search works');
 					console.log("all is well");
-//                    document.getElementById("orig_price1").innerHTML = "<del>$199.99</del>";
-//                    document.getElementById("disc_price1").innerHTML = "$129.99";
-//                    document.getElementById("description1").src = "http://www.criteo.com/";
-//                    document.getElementById("description1").innerHTML = "Black Dress";
-//                    document.getElementById("image1").src = "images/dress1.jpg";
-
-					// test
-//					loadTopDeals();
+					loadTopDeals();
 
 					// ====================== RUCHA START ==========================
 
@@ -455,6 +447,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             document.getElementById("orig_price1").innerHTML = "<del> $" + data.hits.hits[0]._source.retailprice + "</del>";
 		    				document.getElementById("disc_price1").innerHTML = "$" + data.hits.hits[0]._source.price;
 		    				document.getElementById("description1").href = data.hits.hits[0]._source.producturl;
+		    				document.getElementById("image_redirect1").href = data.hits.hits[0]._source.producturl;
+		    				document.getElementById("moreinfo1").innerHTML = data.hits.hits[0]._source.description;
                         });
 
                     // ====================== RUCHA END ==========================
