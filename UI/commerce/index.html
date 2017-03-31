@@ -443,9 +443,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             console.log("debug for breakpoint");
                             document.getElementById("description1").innerHTML = data.hits.hits[0]._source.brand;
                             document.getElementById("image1").src = data.hits.hits[0]._source.bigimage;
-                            document.getElementById("orig_price1").innerHTML = data.hits.hits[0]._source.retailprice;
-		    				document.getElementById("disc_price1").innerHTML = data.hits.hits[0]._source.price;
-		    				document.getElementById("description1").src = data.hits.hits[0]._source.producturl;
+                            document.getElementById("orig_price1").innerHTML = "<del> $" + data.hits.hits[0]._source.retailprice + "</del>";
+		    				document.getElementById("disc_price1").innerHTML = "$" + data.hits.hits[0]._source.price;
+		    				document.getElementById("description1").href = data.hits.hits[0]._source.producturl;
                         });
 
                     // ====================== RUCHA END ==========================
