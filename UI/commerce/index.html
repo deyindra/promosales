@@ -414,7 +414,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
     <script type="text/javascript">
-		$(document).ready(function() {
+		$(document).ready(loadPage('{"size":10,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}'));
+
+
+        function loadPage(query){
 
             var client = new $.es.Client({
                 hosts: 'http://172.28.46.6:9200',
@@ -443,7 +446,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					// ====================== RUCHA START ==========================
 
                     $.post( 'http://172.28.46.6:9200/20partners/product/_search',
-                        '{"size":10,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}}]}}}')
+                        query)
                         .done(function( data ) {
 //                            alert( "Data Loaded: " + data );
                             console.log("debug for breakpoint");
@@ -483,7 +486,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                           //  alert( "Data Loaded: " + data );
                             //$("description1").html(data.hits.hits[0]._source.brand);
-                            
+
                     console.log("debug log");
 
 				}
@@ -491,7 +494,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 
-        });
+        }
 	</script>
     <a href="#" id="toTop"> </a>
     <script type="text/javascript" src="js/navigation.js"></script>
