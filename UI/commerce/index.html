@@ -25,6 +25,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var monitorQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[305]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
         var TVQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
         $(document).ready(loadPage(giftCardQuery));
+        var BHQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"partnerId":[10850]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}';
+
+	function loadBHPage() {
+	    loadPage(BHQuery);
+	}
 
         function loadGiftCardPage() {
             loadPage(giftCardQuery);
@@ -306,7 +311,7 @@ TOLED55B6
                             </li>
                             <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/newegg.png></a>
                             </li>
-                            <li><a href="#" onclick="event.preventDefault(); "><img src=images/images/bandh.png></a>
+                            <li><a href="#" onclick="event.preventDefault(); loadBHPage();"><img src=images/images/bandh.png></a>
                             </li>
                             <li><a href="#" onclick="event.preventDefault(); "><img
                                     src=images/images/freepeople.png></a></li>
