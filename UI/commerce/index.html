@@ -128,6 +128,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             document.getElementById("image_redirect" + (step + 1)).href = data.hits.hits[step]._source.producturl;
                             document.getElementById("moreinfo" + (step + 1)).innerHTML = shorten(data.hits.hits[step]._source.name, 100);
 
+                            // random number of sales in last 24hrs
+                            var numSales = Math.floor((Math.random() * 100) + 1);
+                            document.getElementById("trend" + (step + 1)).innerHTML = numSales + " sold in last 24hrs";
+
                         }
 
                     }
@@ -355,12 +359,14 @@ TOLED55B6
                             <h4><a href="preview.html" id="description1" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect1" target="_blank"><img src="" alt="" id="image1"/></a>
                             <div class="price-details">
+                                <h2 id="trend1"></h2>
                                 <div class="price-number">
                                     <p id="orig_price1"><span class="rupees"><del></del></span></p>
-                                </div>
-                                <div class="price-number">
                                     <p id="disc_price1"><span class="rupees"></span></p>
                                 </div>
+                                <!--<div class="price-number">-->
+                                    <!---->
+                                <!--</div>-->
                                 <h2 id="moreinfo1"></h2>
 
                                 <div class="clear"></div>
@@ -372,6 +378,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description2" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect2" target="_blank"><img src="" alt="" id="image2"/></a>
                             <div class="price-details">
+                                <h2 id="trend2"></h2>
                                 <div class="price-number">
                                     <p id="orig_price2"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -388,6 +395,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description3" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect3" target="_blank"><img src="" alt="" id="image3"/></a>
                             <div class="price-details">
+                                <h2 id="trend3"></h2>
                                 <div class="price-number">
                                     <p id="orig_price3"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -404,6 +412,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description4" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect4" target="_blank"><img src="" alt="" id="image4"/></a>
                             <div class="price-details">
+                                <h2 id="trend4"></h2>
                                 <div class="price-number">
                                     <p id="orig_price4"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -427,6 +436,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description5" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect5" target="_blank"><img src="" alt="" id="image5"/></a>
                             <div class="price-details">
+                                <h2 id="trend5"></h2>
                                 <div class="price-number">
                                     <p id="orig_price5"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -443,6 +453,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description6" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect6" target="_blank"><img src="" alt="" id="image6"/></a>
                             <div class="price-details">
+                                <h2 id="trend6"></h2>
                                 <div class="price-number">
                                     <p id="orig_price6"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -459,6 +470,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description7" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect7" target="_blank"><img src="" alt="" id="image7"/></a>
                             <div class="price-details">
+                                <h2 id="trend7"></h2>
                                 <div class="price-number">
                                     <p id="orig_price7"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -475,6 +487,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description8" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect8" target="_blank"><img src="" alt="" id="image8"/></a>
                             <div class="price-details">
+                                <h2 id="trend8"></h2>
                                 <div class="price-number">
                                     <p id="orig_price8"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -494,6 +507,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description9" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect9" target="_blank"><img src="" alt="" id="image9"/></a>
                             <div class="price-details">
+                                <h2 id="trend9"></h2>
                                 <div class="price-number">
                                     <p id="orig_price9"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -511,6 +525,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description10" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect10" target="_blank"><img src="" alt="" id="image10"/></a>
                             <div class="price-details">
+                                <h2 id="trend10"></h2>
                                 <div class="price-number">
                                     <p id="orig_price10"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -527,6 +542,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description11" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect11" target="_blank"><img src="" alt="" id="image11"/></a>
                             <div class="price-details">
+                                <h2 id="trend11"></h2>
                                 <div class="price-number">
                                     <p id="orig_price11"><span class="rupees"><del></del></span></p>
                                 </div>
@@ -543,6 +559,7 @@ TOLED55B6
                             <h4><a href="preview.html" id="description12" target="_blank"></a></h4>
                             <a href="preview.html" id="image_redirect12" target="_blank"><img src="" alt="" id="image12"/></a>
                             <div class="price-details">
+                                <h2 id="trend12"></h2>
                                 <div class="price-number">
                                     <p id="orig_price12"><span class="rupees"><del></del></span></p>
                                 </div>
