@@ -19,6 +19,122 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="./lib/elasticsearch-js/elasticsearch.jquery.js"></script>
+	<script type="text/javascript">
+        var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":20}}},{"range":{"price":{"gte":20}}}]}}}';
+        var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}'
+		$(document).ready(loadPage(giftCardQuery));
+
+		function loadGiftCardPage()
+		{
+			loadPage(giftCardQuery);
+		}
+
+		function loadElectronicPage()
+		{
+			loadPage(electronicQuery);
+		}
+
+
+        function loadPage(query){
+
+            var client = new $.es.Client({
+                //hosts: 'http://172.28.46.6:9200', //YT
+                hosts: 'http://172.28.46.10:9200',  // zheng
+                log: 'trace'
+            });
+
+			//console.log("test");
+
+			client.ping({
+				requestTimeout: 30000,
+			}, function (error) {
+				if (error) {
+					console.error('elasticsearch cluster is down!');
+				} else {
+					//alert('elastic search works');
+					console.log("all is well");
+					loadTopDeals();
+
+                    $.post( 'http://172.28.46.10:9200/product_data/product/_search',
+                        query)
+                        .done(function( fetchedData ) {
+
+							rucha(fetchedData);
+							ming(fetchedData);
+
+                        });
+
+					// ====================== RUCHA START ==========================
+
+
+
+
+
+					function rucha(data) {
+//                            alert( "Data Loaded: " + data );
+                            console.log("debug for breakpoint");
+                            document.getElementById("description1").innerHTML = data.hits.hits[0]._source.brand;
+                            document.getElementById("image1").src = data.hits.hits[0]._source.bigimage;
+                            document.getElementById("orig_price1").innerHTML = "<del> $" + data.hits.hits[0]._source.retailprice + "</del>";
+		    				document.getElementById("disc_price1").innerHTML = "$" + data.hits.hits[0]._source.price;
+		    				document.getElementById("description1").href = data.hits.hits[0]._source.producturl;
+		    				document.getElementById("image_redirect1").href = data.hits.hits[0]._source.producturl;
+		    				document.getElementById("moreinfo1").innerHTML = shorten(data.hits.hits[0]._source.description,100);
+					};
+
+					function shorten(text, maxLength) {
+						var ret = text;
+						if (ret.length > maxLength) {
+							ret = ret.substring(0,maxLength-3) + "...";
+						}
+						return ret;
+					};
+
+                    // ====================== RUCHA END ==========================
+
+
+                    // ====================== Yi START ==========================
+
+					// only yi can code here
+
+                    // ====================== Yi END ==========================
+
+                    // ====================== MING START ==========================
+
+                    // only ming can code here
+					function ming(data) {
+
+					 	console.log("test");
+
+					}
+
+                    // ====================== MING END ==========================
+
+                    // ====================== YT START ==========================
+
+                    // ====================== YT END ==========================
+
+                    // ====================== YUANCHAO START ==========================
+
+                    // ====================== YUANCHAO END ==========================
+
+                    // ====================== ZHENG START ==========================
+
+                    // ====================== ZHENG END ==========================
+
+                          //  alert( "Data Loaded: " + data );
+                            //$("description1").html(data.hits.hits[0]._source.brand);
+
+                    console.log("debug log");
+
+				}
+			});
+
+
+
+        }
+	</script>
+
 
 
 </head>
@@ -165,7 +281,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</ul>
 						</li>
 						<li>
-							<a href="#">Gift Card</a>
+							<a href="#" onclick=“event.preventDefault(); loadElectronicPage();“>Gift Card</a>
 						</li>
 						<li>
 							<a href="contact.html">Login</a>
@@ -414,110 +530,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		   </div>		
         </div>
     </div>
-    <script type="text/javascript">
-        var giftCardQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"match":{"partnerId":35576}},{"range":{"discount":{"lte":20}}},{"range":{"price":{"gte":20}}}]}}}';
-        var electronicQuery = '{"size":15,"sort":[{"discount":{"order":"desc"}}],"query":{"bool":{"must":[{"terms":{"categoryEnrichment.categoriesOnPath":[152,328,4745,502995,305,404]}},{"range":{"price":{"gte":100}}}],"must_not":[{"terms":{"cat1.catName":["USED"]}}]}}}'
-		$(document).ready(loadPage(giftCardQuery));
-
-
-        function loadPage(query){
-
-            var client = new $.es.Client({
-                hosts: 'http://172.28.46.6:9200',
-                log: 'trace'
-            });
-
-			//console.log("test");
-
-			client.ping({
-				requestTimeout: 30000,
-			}, function (error) {
-				if (error) {
-					console.error('elasticsearch cluster is down!');
-				} else {
-					//alert('elastic search works');
-					console.log("all is well");
-					loadTopDeals();
-
-                    $.post( 'http://172.28.46.6:9200/20partners/product/_search',
-                        query)
-                        .done(function( fetchedData ) {
-
-							rucha(fetchedData);
-							ming(fetchedData);
-
-                        });
-
-					// ====================== RUCHA START ==========================
-
-
-					
-	
-
-					function rucha(data) {
-//                            alert( "Data Loaded: " + data );
-                            console.log("debug for breakpoint");
-                            document.getElementById("description1").innerHTML = data.hits.hits[0]._source.brand;
-                            document.getElementById("image1").src = data.hits.hits[0]._source.bigimage;
-                            document.getElementById("orig_price1").innerHTML = "<del> $" + data.hits.hits[0]._source.retailprice + "</del>";
-		    				document.getElementById("disc_price1").innerHTML = "$" + data.hits.hits[0]._source.price;
-		    				document.getElementById("description1").href = data.hits.hits[0]._source.producturl;
-		    				document.getElementById("image_redirect1").href = data.hits.hits[0]._source.producturl;
-		    				document.getElementById("moreinfo1").innerHTML = shorten(data.hits.hits[0]._source.description,100);
-					};
-
-					function shorten(text, maxLength) {
-						var ret = text;
-						if (ret.length > maxLength) {
-							ret = ret.substring(0,maxLength-3) + "...";
-						}
-						return ret;
-					};
-
-                    // ====================== RUCHA END ==========================
-
-
-                    // ====================== Yi START ==========================
-
-					// only yi can code here
-
-                    // ====================== Yi END ==========================
-
-                    // ====================== MING START ==========================
-
-                    // only ming can code here
-					function ming(data) {
-
-					 	console.log("test");
-
-					}
-
-                    // ====================== MING END ==========================
-
-                    // ====================== YT START ==========================
-
-                    // ====================== YT END ==========================
-
-                    // ====================== YUANCHAO START ==========================
-
-                    // ====================== YUANCHAO END ==========================
-
-                    // ====================== ZHENG START ==========================
-
-                    // ====================== ZHENG END ==========================
-
-                          //  alert( "Data Loaded: " + data );
-                            //$("description1").html(data.hits.hits[0]._source.brand);
-
-                    console.log("debug log");
-
-				}
-			});
-
-
-
-        }
-	</script>
     <a href="#" id="toTop"> </a>
     <script type="text/javascript" src="js/navigation.js"></script>
     
